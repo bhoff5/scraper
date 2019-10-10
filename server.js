@@ -31,21 +31,19 @@ app.use(express.static("public"));
 //   useNewUrlParser: true
 // });
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm",
-  {
-    useMongoClient: true
-  }
-);
-
-// var MONGODB_URI =
+// mongoose.connect(
 //   process.env.MONGODB_URI ||
-//   "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm";
+//     "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm",
+//   {
+//     useMongoClient: true
+//   }
+// );
 
-// mongoose.connect(MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect('mongodb://localhost/GrapeScrape');
+var db = mongoose.connection;
 
 // Routes
 
