@@ -32,7 +32,8 @@ app.use(express.static("public"));
 // });
 
 var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+  process.env.MONGODB_URI ||
+  "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm";
 
 mongoose.connect(MONGODB_URI);
 
