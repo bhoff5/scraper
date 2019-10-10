@@ -31,11 +31,21 @@ app.use(express.static("public"));
 //   useNewUrlParser: true
 // });
 
-var MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm";
+mongoose.Promise = global.Promise;
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm",
+  {
+    useMongoClient: true
+  }
+);
+
+// var MONGODB_URI =
+//   process.env.MONGODB_URI ||
+//   "mongodb://user1:password1@ds333248.mlab.com:33248/heroku_2jslx6mm";
+
+// mongoose.connect(MONGODB_URI);
 
 // Routes
 
