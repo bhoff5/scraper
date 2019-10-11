@@ -8,9 +8,11 @@ $.getJSON("/articles", function(data) {
         data[i]._id +
         "'>" +
         data[i].title +
-        "<br /><span style='color:#fffc95'>" +
+        "<br /><a style='color:#fffc95' href='" +
         data[i].link +
-        "</span></p>"
+        "'>" +
+        data[i].link +
+        "</a></p>"
     );
   }
 });

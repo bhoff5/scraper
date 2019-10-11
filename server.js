@@ -67,9 +67,7 @@ app.get("/scrape", function(req, res) {
     });
 
     // Send a message to the client
-    res.send(
-      "Scrape Complete</br><a id='scrape' class='btn waves-effect waves-light' href='/'>Back</a>"
-    );
+    res.send("Scrape Complete</br><a href='/'>Back</a>");
   });
 });
 
