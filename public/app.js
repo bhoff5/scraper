@@ -3,10 +3,17 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    $("#articles").append(
+      "<p data-id='" +
+        data[i]._id +
+        "'>" +
+        data[i].title +
+        "<br /><span style='color:#fffc95'>" +
+        data[i].link +
+        "</span></p>"
+    );
   }
 });
-
 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
@@ -24,13 +31,25 @@ $(document).on("click", "p", function() {
     .then(function(data) {
       console.log(data);
       // The title of the article
-      $("#notes").append("<h2>" + data.title + "</h2>");
+      $("#notes").append("<h3>" + data.title + "</h3>");
       // An input to enter a new title
+      $("#notes").append("<div class='input-field col s12'>");
+
       $("#notes").append("<input id='titleinput' name='title' >");
+      $("#notes").append("<label for='titleinput'>Title</label>");
+
       // A textarea to add a new note body
-      $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
+      $("#notes").append(
+        "<textarea id='bodyinput' class='materialize-textarea' name='body'></textarea>"
+      );
+      $("#notes").append("<label for='bodyinput'>Description</label><br><br>");
       // A button to submit a new note, with the id of the article saved to it
-      $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+      $("#notes").append(
+        "<button data-id='" +
+          data._id +
+          "' id='savenote' class='btn waves-effect waves-light'>Save Note</button>"
+      );
+      $("#notes").append("</div>");
 
       // If there's a note in the article
       if (data.note) {

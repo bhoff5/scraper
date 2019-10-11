@@ -3,9 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <title>Scraper</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
     <style>
       body {
-        background-color: #f2f6d0;
+        background-color: #ffffff;
+      }
+      p {
+        background-color: #26a69a;
+        padding: 15px;
+        color: white;
+        border-radius: 15px;
       }
       #wrapper {
         width: 960px;
@@ -15,13 +26,15 @@
       }
       #articles {
         display: inline-block;
-        overflow: auto;
         width: 60%;
-        height: 700px;
+        height: auto;
       }
       #notes {
         float: right;
         width: 30%;
+        position: fixed;
+        top: 0;
+        right: 50px;
       }
       textarea,
       input {
@@ -41,11 +54,18 @@
   </head>
   <body>
     <div id="wrapper">
-      <h1>Scraper</h1>
+      <h1 class="header col s12 light">
+        CSS Scraper
+        <a id="scrape" class="btn waves-effect waves-light" href="/scrape">
+          Scrape
+        </a>
+      </h1>
+
       <div id="articles"></div>
       <div id="notes"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
